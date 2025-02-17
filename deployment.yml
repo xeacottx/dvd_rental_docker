@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dvd_rental
+  name: dvd-rental
   labels:
     app: web
 spec:
