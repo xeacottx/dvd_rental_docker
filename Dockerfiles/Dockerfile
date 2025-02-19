@@ -6,6 +6,11 @@ ARG S6_OVERLAY_VERSION=3.2.0.1
 RUN apt-get update && apt-get install -y nginx xz-utils
 RUN apt-get install -y openssh-client
 RUN apt-get install -y openssh-server
+RUN apt install -y postgresql postgresql-client
+RUN service postgresql start
+RUN su - postgres
+RUN psql
+
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 CMD ["/usr/sbin/nginx"]
 

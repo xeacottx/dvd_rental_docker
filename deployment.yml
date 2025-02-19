@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: web
-  replicas: 5
+  replicas: 1
   strategy:
     type: RollingUpdate
   template:
@@ -22,18 +22,3 @@ spec:
           imagePullPolicy: "IfNotPresent"
           # ports:
           #     - containerPort: 5432
-          env:
-          - name: POSTGRES_DB
-            value: whatever
-          - name: POSTGRES_USER
-            # value: login
-            valueFrom:
-                secretKeyRef:
-                    name: postgresql-credentials
-                    key: username
-          - name: POSTGRES_PASSWORD
-            # value: pass
-            valueFrom:
-                secretKeyRef:
-                    name: postgresql-credentials
-                    key: password
